@@ -1,15 +1,6 @@
 'use strict';
 import { ctx, canvas, camera, keysPressed } from "./values.js";
-
-
-/* рисует шарики разных координат, размеров и цветов
-в зависимости от указанных параметров */
-function drawCircle(color, x, y, radius) {
-    ctx.fillStyle = color;
-    ctx.beginPath();
-    ctx.arc(x, y, radius, Math.PI * 2, 0);
-    ctx.fill();
-}
+import { drawCircle } from "./functions.js";
 
 
 /*
@@ -40,8 +31,8 @@ class Entity {
 
     // обновляет объект
     update() {
-        /* чото обновляем
-        обновляем
+        /* что-то обновляем
+        ещё обновляем
         все, обновили!
         */
     }
@@ -81,6 +72,10 @@ class Enemy extends Entity {
 
     draw() {
         drawCircle(this.color, this.x - camera.x + canvas.width / 2, this.y - camera.y + canvas.height / 2, this.enemyRadius);
+    }
+
+    update() {
+        
     }
 
 }

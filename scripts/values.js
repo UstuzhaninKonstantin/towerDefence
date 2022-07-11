@@ -8,7 +8,7 @@ canvas.height = window.innerHeight;
 const keysPressed = {};
 const allObjects = {
     "core": [],
-    "camera": []
+    "invisibleObjects": []
 };
 
 
@@ -20,17 +20,17 @@ class Camera {
     }
 
     update() {
-        if (keysPressed['W'] || keysPressed['ArrowUp']) {
-            this.y += this.speed;
-        }
-        if (keysPressed['A'] || keysPressed['ArrowLeft']) {
-            this.x += this.speed;
-        }
-        if (keysPressed['S'] || keysPressed['ArrowDown']) {
+        if (keysPressed['KeyW'] || keysPressed['ArrowUp']) {
             this.y -= this.speed;
         }
-        if (keysPressed['D'] || keysPressed['ArrowRight']) {
+        if (keysPressed['KeyA'] || keysPressed['ArrowLeft']) {
             this.x -= this.speed;
+        }
+        if (keysPressed['KeyS'] || keysPressed['ArrowDown']) {
+            this.y += this.speed;
+        }
+        if (keysPressed['KeyD'] || keysPressed['ArrowRight']) {
+            this.x += this.speed;
         }
     }
 
@@ -41,6 +41,6 @@ class Camera {
 
 
 const camera = new Camera(canvas.width / 2, canvas.height / 2, 10);
-allObjects['camera'].push(camera);
+allObjects['invisibleObjects'].push(camera);
 
 export { canvas, ctx, keysPressed, allObjects, camera }
