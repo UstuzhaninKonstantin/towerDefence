@@ -1,15 +1,15 @@
 'use strict';
-import { canvas, allObjects } from "./values.js";
-import { Core } from "./classes.js"
-import { update, draw, keydownEvent, keyupEvent, createMatrix } from "./functions.js";
+import { allObjects } from "./values.js";
+import { Core, Enemy } from "./classes.js"
+import { update, draw, keydownEvent, keyupEvent } from "./functions.js";
 
-const core = new Core(canvas.width / 2 - 50 / 2, canvas.height / 2 - 50 / 2, 50, 50, '#000000', 20);
+const core = new Core(0, 0, 50, 50, '#000000', 100);
 allObjects['core'].push(core);
+let enemy = new Enemy(1000, -1000, '#ff0000', 15, 300, 55, 30, 6);
+allObjects['enemies'].push(enemy);
 
 document.addEventListener('keydown', keydownEvent);
 document.addEventListener('keyup', keyupEvent);
-
-console.log(createMatrix(50,50, 100));
 
 setInterval(() => {
     update(); 
